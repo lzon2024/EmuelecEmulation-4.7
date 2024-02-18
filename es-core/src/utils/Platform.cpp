@@ -174,13 +174,19 @@ namespace Utils
 #endif
 		}
 
+#ifdef _ENABLEEMUELEC
+		int runRestartESCommand() {
+			return system("emuelec-utils es_restart");
+		}
+#endif
+
 		int runShutdownCommand()
 		{
 #ifdef WIN32 // windows
 			return system("shutdown -s -t 0");
 #else // osx / linux	
 #ifdef _ENABLEEMUELEC
-			return system("ee_shutdown.sh");	
+			return system("emuelec-utils es_shutdown");
 #else
 			return system("shutdown -h now");
 #endif
@@ -246,6 +252,9 @@ namespace Utils
 			case QuitMode::RESTART:
 				LOG(LogInfo) << "Restarting EmulationStation";
 				touch("/tmp/restart.please");
+#ifdef _ENABLEEMUELEC
+				runRestartESCommand();
+#endif
 				break;
 			case QuitMode::REBOOT:
 			case QuitMode::FAST_REBOOT:
