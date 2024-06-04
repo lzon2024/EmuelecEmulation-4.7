@@ -183,7 +183,7 @@ int* getVideoModeDimensions(std::string videomode, std::vector<std::string> resl
 
 #endif
 
-GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
+GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("LZ Retro Stations V4.8 JUNHO 2024").c_str()), mVersion(window)
 {
 	// MAIN MENU
 	bool isFullUI = !UIModeController::getInstance()->isUIModeKid() && !UIModeController::getInstance()->isUIModeKiosk();
