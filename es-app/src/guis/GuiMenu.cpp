@@ -285,7 +285,7 @@ if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::WIFI))
 	}
 	else
 	{
-		addEntry(_("INFORMATION").c_str(), true, [this] { openSystemInformations(); }, "iconSystem");
+		
 		addEntry(_("UNLOCK USER INTERFACE MODE").c_str(), true, [this] { exitKidMode(); }, "iconAdvanced");
 	}
 
@@ -1884,7 +1884,7 @@ void GuiMenu::openSystemSettings()
 	s->addGroup(_("SYSTEM"));
 
 	// System informations
-	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations(); });
+	
 
 #ifdef _ENABLEEMUELEC
 	auto emuelec_timezones = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TIMEZONE"), false);
