@@ -217,7 +217,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #ifdef _ENABLEEMUELEC
 	if (isFullUI)
 	{
-		addEntry(_("EMUELEC SETTINGS").c_str(), true, [this] { openEmuELECSettings(); }, "iconEmuelec"); /* < emuelec */
+		addEntry(_("CONFIGURE LZ-RETRO-GAMES").c_str(), true, [this] { openEmuELECSettings(); }, "iconEmuelec"); /* < emuelec */
 	}
 #endif
 
@@ -321,7 +321,7 @@ if (!isKidUI)
 /* < emuelec */
 void GuiMenu::openEmuELECSettings()
 {
-	auto s = new GuiSettings(mWindow, "EmuELEC Settings");
+	auto s = new GuiSettings(mWindow, "CONFIGURE O LZ-RETRO-GAMES");
 
 	Window* window = mWindow;
 	std::string a;
@@ -1127,7 +1127,7 @@ void GuiMenu::addVersionInfo()
 		else
 		{
 #ifdef _ENABLEEMUELEC	
-		label = "EMUELEC ES V" + ApiSystem::getInstance()->getVersion() + buildDate + " IP:" + Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils getip)");
+		label = "LZ GAMES VERSION" + ApiSystem::getInstance()->getVersion() + buildDate + " IP:" + Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils getip)");
 #else
 			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " V" + ApiSystem::getInstance()->getVersion();
 			label = aboutInfo + buildDate;
